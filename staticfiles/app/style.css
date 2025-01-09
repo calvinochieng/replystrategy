@@ -1,0 +1,98 @@
+
+html,body{
+    font-family: 'Montserrat', sans-serif;
+    background: #FAFAFA;
+  }
+  
+  .title{
+    font-size: 2.750rem !important
+  }
+  .navbar-burger span{
+    height: 2px;
+  }
+  .navbar-burger span:nth-child(2){
+    width: 12px;
+  }
+  .name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: -5px;
+  }
+  .logo {
+    max-width: 3.75rem !important;
+    margin-bottom: 5px;
+  }
+  .is-link {
+    background: linear-gradient(45deg, var(--primary-color), var(--hover-color));
+  }
+  .primary-button{
+    background: linear-gradient(45deg, var(--primary-color), #00776b);
+    border: 1px solid var(--primary-color);
+    font-weight: bold;
+    transition: all .1s;
+  }
+  .primary-button:hover{
+    background: var(--hover-color);
+  }
+  .link-outlined {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+  }
+  .nav-start * a:hover,
+  .start-brand * a:hover {
+    color: var(--primary-color) !important;
+  }
+  
+  @media only screen and (max-width: 320px) {
+    .title-sub{
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .largescreen {
+      max-width: 55% !important;
+    }
+    .footer-navbar{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+  }
+  @media screen and (max-width: 1024px){
+    .navbar-end{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+
+    }
+    .navbar-end .navbar-item{
+      width: 100%;
+      text-align: center;
+    }
+    .navbar-menu.is-active {
+      height: calc(100vh - 52px);
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+  }
+  .title{
+    font-size: 2.0rem !important
+  }
+
+}
+
+.halved {
+  width: 50%;
+  margin: 0 auto; /* Centers the halved */
+}
+
+/* Media query for small screens (720px and below) */
+@media (max-width: 720px) {
+.halved {
+width: 100%; /* Full width for small screens */
+}
+}

@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ item.name }}
+{% endblock title %}
+
+{% block description %}
+    {{ item.description }}
+{% endblock description %}
+
+{% block custom_styles %}
+    <style>
+        .tool-item {
+            transition: transform 0.2s;
+        }
+
+        .tool-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image img {
+            border-radius: 8px 8px;
+            object-fit: cover;
+            border: 1px solid #3273dc7a;
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            font-size: 1.125rem;
+        }
+
+        .tag {
+            margin-right: 5px;
+        }
+
+        .hero-section {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .hero-section h1 {
+            font-weight: bold;
+            color: #4a4a4a;
+        }
+        .sub-title{
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+            /* Featured Tools */
+    
+        .tool-image {
+            height: 75px; }
+    </style>
+{% endblock custom_styles %}
+
+{% block content %}
+
+
+<section class="hero-section has-background-link-light">
+    <div class="container">
+        <div class="tool-item p-4" >
+            <p>
+                /Tool
+            </p>
+            <h1 class="title is-3 has-text-link">{{ item.name }}</h1>
+            <p class="subtitle is-6">{{ item.pricing }}</p>
+            <div class="columns">
+                <div class="column is-half is-flex is-justify-content-center is-flex-direction-column">
+                    <h2 class="sub-title mb-3">Summary</h2>
+                    <p>{{ item.description }}</p>
+                    <div class="mt-4">
+                        <a href="{{ item.url }}" target="_blank">
+                            <button class="button is-link is-large">
+                                <span>Visit Tool</span>
+                                <span class="icon">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </span>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="mt-4">
+                        Category: <a href="{% url 'category' item.category.slug %}" class="tag is-link is-rounded">{{item.category}}</a>
+                    </div>
+                </div>
+                <div class="column is-half">
+                    <div class="card card-image">
+                        <figure class="image">
+                            <img src="{{ item.img.url }}" alt="{{ item.name }}">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<section class="section pb-0">
+    <div class="container">   
+    </div>
+</section>
+
+{% endblock content %}
+
+{% block script %}
+<!-- Add any JavaScript here if needed -->
+{% endblock script %}

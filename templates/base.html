@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Information -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}5M Impressions Unlocked{% endblock title %}</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{% block description %}Learn actionable strategies from '5M Impressions Unlocked' to skyrocket your Twitter X growth and monetization goals.{% endblock description %}">
+    <meta name="keywords" content="Twitter growth, Reply Guy Strategy, 5M impressions, monetization, Twitter X strategies, social media marketing">
+    <meta name="author" content="5M Reply Strategies">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@calvinochieng_">
+    <meta name="twitter:title" content="5M Impressions Unlocked: Master the Reply Strategy">
+    <meta name="twitter:description" content="Discover how to master engagement, boost impressions, and grow on X (Twitter). Unlock top accounts to reply to for massive reach with our guide.">
+    <meta name="twitter:image" content="https://5munlocked.tips/static/images/5m-cover-large.jpg">
+    <meta name="twitter:image:alt" content="Book cover: 5M Impressions Unlocked">
+
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://5munlocked.tips">
+    <meta property="og:title" content="5M Impressions Unlocked: Master the Reply Strategy">
+    <meta property="og:description" content="The ultimate guide to boosting your impressions on X (Twitter). Learn top engagement tactics, reply strategies, and timing secrets.">
+    <meta property="og:image" content="https://5munlocked.tips/static/images/5m-cover-large.jpg">
+    <meta property="og:image:alt" content="Book cover: 5M Impressions Unlocked">
+    <meta property="og:site_name" content="5M Unlocked">
+    <meta property="og:locale" content="en_US">
+
+
+    <!-- Schema.org (JSON-LD for Rich Results) -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Book",
+          "name": "5M Impressions Unlocked: Master the Reply Strategy",
+          "author": {
+            "@type": "Person",
+            "name": "Calvin Ochieng"
+          },
+          "description": "Discover the secrets to growing on X (Twitter) with our comprehensive Reply Strategy. Learn engagement tactics, top accounts to engage with, and timing strategies for massive reach.",
+          "image": "https://5munlocked.tips/static/images/5m-cover-large.jpg",
+          "url": "https://5munlocked.tips",
+          "publisher": {
+            "@type": "Organization",
+            "name": "5M Unlocked Tips"
+          },
+          "inLanguage": "en",
+          "datePublished": "2024-12-25"
+        }
+    </script>
+        
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Files -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'app/bulma/css/bulma.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'app/style.css' %}">
+    {% block custom_styles %}{% endblock custom_styles %}
+    <style>/* Footer Base Styles */
+        .footer {
+            background-color: #040404;
+            color: #fff;
+            padding: 2rem 1.5rem;
+        }
+        
+        .footer .cta-footer {
+            margin-bottom: 2rem;
+        }
+        
+        .footer .cta-footer .title {
+            color: #ffdd57;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .footer .cta-footer .button {
+            background-color: #ffdd57;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        
+        .footer .cta-footer .button:hover {
+            background-color: #e2a900;
+            color: #fff;
+        }
+        
+        /* Divider */
+        .footer-divider {
+            border: none;
+            border-top: 1px solid #444;
+            margin: 2rem 0;
+        }
+        
+        /* Footer Links */
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: #ffdd57;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .footer-links a:hover {
+            color: #e2a900;
+            text-decoration: underline;
+        }
+        
+        /* Authors Section */
+        .authors {
+            margin-bottom: 1.5rem;
+        }
+        
+        .authors a {
+            color: #ffdd57;
+            text-decoration: none;
+        }
+        
+        .authors a:hover {
+            color: #e2a900;
+            text-decoration: underline;
+        }
+        
+        /* Copyright Section */
+        .copyright {
+            font-size: 0.875rem;
+            color: #666;
+        }
+        </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <!-- Brand Name -->
+            <div class="navbar-brand">
+                <a class="navbar-item has-text-weight-bold logo-text" href="/">5M<i class="fa fa-unlock" ></i></a>
+                <!-- Mobile Burger for Toggling Menu -->
+                <div class="navbar-burger" data-target="navMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <!-- Navbar Menu -->
+            <div id="navMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <!-- Link to Purchase Book -->
+                    <a class="navbar-item" href="https://calvinochieng.gumroad.com/l/5MUnlocked">
+                        <button class="button is-primary has-text-black"> Get the Book</button>
+                    </a>
+                    <!-- Follow on Twitter/X -->
+                    <a class="navbar-item black-text" href="https://x.com/calvinochieng_" target="_blank">
+                        <i class="fab fa-x-twitter" style="margin-right: 5px;"></i> Follow Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Section -->
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="notification is-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% block content %}
+    {% endblock content %}
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <!-- Call to Action -->
+            <div class="cta-footer content has-text-centered">
+                <p class="title is-5">Ready to Unlock Your Twitter Growth?</p>
+                <a class="button is-primary is-medium" href="https://calvinochieng.gumroad.com/l/5MUnlocked">Grab Your Copy for <span class="pl-2">$1 <sup>55</sup> </span></a>
+            </div>
+    
+            <hr class="footer-divider">
+    
+            <!-- Footer Links -->
+            <!-- Author Credits -->
+            <div class="authors content has-text-centered">
+                <p class="is-size-6">
+                    Written by <a href="https://x.com/calvinochieng_" target="_blank">Calvin Ochieng</a> & 
+                    <a href="https://x.com/shiv_009_dev" target="_blank">Shiv</a>
+                </p>
+            </div>    
+            <!-- Copyright Section -->
+            <div class="copyright content has-text-centered">
+                <p class="is-size-7">© 2024 X 5M Impressions Unlocked. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+
+    <!-- JavaScript -->
+    <script>
+        document.querySelector('.navbar-burger').addEventListener('click', function () {
+            const target = document.getElementById(this.dataset.target);
+            target.classList.toggle('is-active');
+        });
+    </script>
+    
+    {% block scripts %}
+        
+    {% endblock scripts %}
+        
+</body>
+</html>

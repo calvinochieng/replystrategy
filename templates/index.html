@@ -1,0 +1,573 @@
+{% extends 'base.html' %}
+
+{% block title %}
+5M Impressions Unlocked
+{% endblock title %}
+
+{% block description %}
+Learn the Reply Guy Strategy to skyrocket your Twitter X growth with actionable tips and real-life examples.
+{% endblock description %}
+
+{% block custom_styles %}
+<style>
+    nav.navbar{
+        background-color: #ffffff05;
+        position: absolute;
+        width: 100%;
+    }
+    .hero-body {
+        padding: 4em 2em;
+        text-align: center;
+        background: #f5f5f5;
+        min-height: calc( 100vh + 55px );
+        display: flex;
+        align-items: center;
+       /* background: linear-gradient(to right,  #040404, #080700);  */
+       background: linear-gradient(to right, #1b1b1b12, #08070012);
+    }
+    .features .column h3 {
+        color: var(--primary-color);
+    }
+    .features .column p {
+        color: var(--text-color);
+    }
+     .lander figure{
+        position: relative;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow:  0px 4px 20px #e6c00445;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+     }
+     .lander  figure.image:hover {
+            transform: scale(1.03); /* Slight zoom-in on hover */
+            box-shadow: 0px 6px 30px #e6c00466 /* Enhance shadow on hover */
+        }
+     .first{position: relative;}
+     .lander div.first::before{
+        content: ' ⤴';
+        position: absolute;
+        bottom: 0;
+        font-size: 70px;
+        left: -20px;
+        bottom: 29px;
+        color: #E91E63;
+        transform: rotate(149deg);
+        z-index: 10;
+        opacity: 1;
+        transition: opacity 0.3s ease, z-index 0.3s ease; 
+    }
+     .lander figure img{
+        transition: bottom opacity 0.5s ease-in-out;
+     }
+     .lander div.first:focus-within::before {
+        z-index: 0;
+        opacity: 0; 
+        bottom: 41px;
+    }
+    .gradient-title {
+        background: linear-gradient(to right, #FFD700, #000000);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+/* Feature Card Styling */
+    #features{background-color: gold;}
+    .feature-card {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover, .testimonial-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-card .icon {
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        margin-right: 1rem;
+    }
+
+    .feature-card .icon img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Book Cover Styling */
+    .book-cover {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+    }
+
+    .book-cover:hover {
+        transform: scale(1.05);
+    }
+
+
+    /* Centered Alignment for Image */
+    .has-text-centered img {
+        margin: auto;
+    }
+
+
+    /* End Features */
+    .testimonial {
+        background: #f5f5f5;
+        border-radius: 10px;
+        padding: 1em;
+        margin-bottom: 1em;
+    }
+
+    
+    .testimonial-box{
+        background: #ffffff05; 
+        border-radius: 10px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ffd70040;
+    }
+    .testimonial-box div img{
+        width: 48px; height: 48px; border-radius: 50%; margin-right: 1rem;
+    }
+    .testimonial-name{
+        color: #4a4a4a;
+        font-weight: bold;
+    }
+
+
+
+    .faq {
+        /* background: #040404; */
+        background: #fff;
+        padding: 2em;
+    }
+    .faq-icon{
+       color: gold; 
+        font-size: 1.2rem;
+        margin-left: 1rem;
+        font-weight: bold;
+    }
+    .faq-question {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .faq-answer {
+        margin-top: 0.5rem;
+        padding-left: 1rem;
+        border-left: 3px solid rgba(255, 217, 0, 0.568);
+    }
+    .faq .container {
+        width: 100%; /* Full width for small screens */
+        margin: 0 auto; /* Center the container */
+    }
+
+    /* CTA Section */
+    .cta {
+        background: linear-gradient(to right, gold, #e2a900);
+        color: white;
+        text-align: center;
+        padding: 4rem 1.5rem;
+    }
+
+    .cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: bold;
+    }
+
+    .cta p {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+    }
+
+    .cta .pricing {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: #000;
+    }
+    .original-price {
+        text-decoration: line-through;
+        color: white;}
+    .pricing {
+        font-weight: bold;
+        color: #fff;
+        margin-right: 10px;
+    }
+
+    .pricing .discounted-price {
+        font-weight: bold;
+        color: #ffdd57;
+    }
+
+    #discount-form .input {
+        border-radius: 4px 0 0 4px;
+        border: none;
+    }
+
+    #discount-form .button {
+        border-radius: 0 4px 4px 0;
+        color: #000;
+        font-weight: bold;
+        border: none;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    #discount-form .button:hover {
+        background-color: #e9c307;
+        color: #fff;
+    }
+    .birthday-field{ display: none;}
+
+    @media (min-width: 768px) { /* Apply 80% width for tablets and larger */
+        .faq .container, .cta .container {
+            width: 65%;
+        }
+    }
+
+</style>
+{% endblock custom_styles %}
+
+{% block extrajs %}
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+{% endblock extrajs %}
+    
+
+
+
+{% block content %}
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns">
+                <!-- Left Column: Text Content -->
+                <div class="column lander is-half has-text-centered-touch">
+                    <h1 class="title is-1 gradient-title">5M Impressions Unlocked</h1>
+                    <p class="subtitle is-4">
+                        Mastering The Reply Strategy To Gain Impressions Faster And Get Monetized on Twitter X
+                    </p>
+                    <!-- What’s Inside the Book -->
+                    <div class="content mb-3">
+                            <p>📘 Proven reply strategies to boost impressions</p>
+                            <p>💵 Crafting replies that gets high engagements</p>
+                            <p>⚡ Top accounts to reply to for maximum reach</p>
+                            <p class="pricing">
+                                <span style=" background-color: #E91E63; padding: 2px;">
+                                    <span class="original-price">$10</span>
+                                    <span class="discounted-price">Set your price</span>
+                                </span>
+                            </p>
+                    </div>
+                    <!-- Call-to-Action Buttons -->
+                    <div >
+                    </div>
+                    <div class="first">
+                        <form id="discount-form" action="/submit-email" method="POST"> {% csrf_token %}
+                            <div class="birthday-field">
+                                <label for="birthday">Birthday</label>
+                                <input type="text" name="birthday" id="birthday">
+                            </div>
+                            <!-- Cloudflare Turnstile -->
+                            <div class="field">
+                                <div class="cf-turnstile" data-sitekey="your-site-key"></div>
+                            </div>
+                            <div class="field has-addons">
+                                <div class="control is-expanded">
+                                    <input
+                                        class="input is-medium"
+                                        type="email"
+                                        name="email"
+                                        placeholder="Enter your email for a discount"
+                                        required
+                                    />
+                                </div>
+                                <div class="control">
+                                    <button class="button is-primary is-medium has-text-black" type="submit">
+                                        Get <span class="pl-2 pr-2"> 90<sup>% </sup> </span> Off
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+               <!-- Right Column: Rotating Book Covers -->
+               <div class="column lander is-half has-text-centered">
+                <div class="inner" style="width: 90%">
+                    <figure class="image is-4by3">
+                        <img id="book-cover" src="/static/app/images/book-cover.png" 
+                            alt="5M Impressions Unlocked Book Cover" 
+                            style=" opacity: 1;">
+                    </figure>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Features Section -->
+<section class="section feature-section" id="features">
+    <div class="container">
+        <!-- Section Title -->
+        <h2 class="title is-3 has-text-centered gradient-title">What’s Inside the Book</h2>
+        <div class="columns is-vcentered">
+            <!-- Features Column -->
+            <div class="column">
+                <div class="feature-card">
+                    <figure class="icon">
+                        <img src="/static/app/images/icons/blueprint.svg" alt="Reply Guy Blueprint">
+                    </figure>
+                    <div>
+                        <h3 class="title is-5 has-text-black">The Reply Guy Blueprint</h3>
+                        <p>Master engagement tactics that work.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <figure class="icon">
+                        <img src="/static/app/images/icons/comments.svg" alt="Crafting Replies">
+                    </figure>
+                    <div>
+                        <h3 class="title is-5 has-text-black">Crafting Perfect Replies</h3>
+                        <p>Learn how to craft replies that maximize impressions and engagement.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <figure class="icon">
+                        <img src="/static/app/images/icons/accounts.svg" alt="Top Accounts to Engage With">
+                    </figure>
+                    <div>
+                        <h3 class="title is-5 has-text-black">Top Accounts to Engage With</h3>
+                        <p>Grow fast by replying to the right accounts.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <figure class="icon">
+                        <img src="/static/app/images/icons/timing.svg" alt="Timing & Hashtags">
+                    </figure>
+                    <div>
+                        <h3 class="title is-5 has-text-black">Timing & Hashtags</h3>
+                        <p>Post at the right time for maximum reach.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Image Column -->
+            <div class="column has-text-centered">
+                <img src="/static/app/images/book-cover.png" alt="5M Impressions Unlocked" class="image book-cover">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section" id="twitter-testimonials" style="/*background: #141414;*/ padding: 3rem 1.5rem;">
+    <div class="container">
+        <h2 class="title is-3 has-text-centered gradient-title" style="margin-bottom: 2rem;">What X Twitter Users Are Saying About Reply Strategies</h2>
+            
+        <div class="columns is-multiline">                     
+            <div class="columns is-multiline">                    
+                <div class="column is-half">
+                    <div class="box testimonial-box">
+                        <div style="display: flex; align-items: center;">
+                            <img src="/static/app/images/x/prasenjit.jpg" alt="Prasenjit">
+                            <div>
+                                <a href="https://x.com/Star_Knight12" target="_blank" class="testimonial-name">Prasenjit</a>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem;">"There is just one way to reach the coveted 5M impressions faster—by being a reply guy. Highly recommend this strategy!”</p>
+                    </div>
+                    <div class="box testimonial-box">
+                        <div style="display: flex; align-items: center;">
+                            <img src="/static/app/images/x/shiv.jpg" alt="Shiv">
+                            <div>
+                                <a href="https://x.com/shiv_009_dev" target="_blank" class="testimonial-name">Shiv</a>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem;">"To reach 5M impressions, you need to reply to as many accounts as possible. I'm the co-author of this book, and all the strategies shared here helped me reach 5M impressions faster."</p>
+                    </div>
+                    <div class="box testimonial-box">
+                        <div style="display: flex; align-items: center;">
+                            <img src="/static/app/images/x/rupesh.jpg" alt="Rupesh Choudhari">
+                            <div>
+                                <a href="https://x.com/Rupesh2202" target="_blank" class="testimonial-name">Rupesh Choudhari</a>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem;">"To monetize, you need to achieve 5M impressions. But how will you get more impressions? Start by replying to big accounts!”</p>
+                    </div>
+                </div>
+
+                <div class="column is-half">
+                    <div class="box testimonial-box">
+                        <div style="display: flex; align-items: center;">
+                            <img src="/static/app/images/x/kay.jpg" alt="Kwesi Kay">
+                            <div>
+                                <a href="https://x.com/EiiKwesiKay" target="_blank" class="testimonial-name">Kwesi Kay</a>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem;">"If you're serious about getting 5M impressions, this book provides the actionable roadmap you need. Replying strategically works!”</p>
+                    </div>
+                    <div class="box testimonial-box">
+                        <div style="display: flex; align-items: center;">
+                            <img src="/static/app/images/x/ksj.jpg" alt="KSJ">
+                            <div>
+                                <a href="https://x.com/KSJ_Kreative" target="_blank" class="testimonial-name">KSJ</a>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem;">"Being a reply guy is the way to reach 5M impressions faster and get monetized."</p>
+                    </div>
+                    <div class="box testimonial-box">
+                        <div style="display: flex; align-items: center;">
+                            <img src="/static/app/images/x/couch.jpg" alt="Monetization Coach">
+                            <div>
+                                <a href="https://x.com/monetization_x" target="_blank" class="testimonial-name">Monetization Coach</a>
+                            </div>
+                        </div>
+                        <p style="margin-top: 1rem;">"Be a reply guy. Reply to big and small accounts as much as possible. While chasing 5M impressions, make sure to create content for your account—this complements your growth."</p>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section faq">
+    <div class="container">
+        <h2 class="title is-3 has-text-centered gradient-title">Got Questions? We’ve Got Answers.</h2>
+        <div class="faq-item">
+            <h4 class="subtitle has-text-weight-bold mt-6 is-5 faq-question" onclick="toggleFaq(this)">
+                What will I learn from this book? 
+                <span class="faq-icon">+</span>
+            </h4>
+            <p class="faq-answer" style="display: none;">
+                You’ll learn the reply-guy strategies, the right way to craft your replies to appeal to more people and encourage engagement, plus the right accounts to reply to in order to grow your impressions to 5M and beyond.
+            </p>
+        </div>
+        <div class="faq-item">
+            <h4 class="subtitle has-text-weight-bold mt-6 is-5 faq-question" onclick="toggleFaq(this)">
+                Is this book for beginners? 
+                <span class="faq-icon">+</span>
+            </h4>
+            <p class="faq-answer" style="display: none;">
+                Yes! This book is designed to help everyone, from beginners to experienced creators. While the status of your account doesn’t matter, it is highly recommended to verify your account before starting this journey. Verified accounts gain more impressions faster, as their replies are prioritized and often boosted to the top of conversations.            </p>
+        </div>
+        <div class="faq-item">
+            <h4 class="subtitle has-text-weight-bold mt-6 is-5 faq-question" onclick="toggleFaq(this)">
+                How long does it take to see results? 
+                <span class="faq-icon">+</span>
+            </h4>
+            <p class="faq-answer" style="display: none;">
+                With consistent effort, you can start seeing results immediately after you start following these strategies. Many accounts have achieved 10X the impressions they normally get without these strategies. To reach 5M impressions, you can achieve this in 30 days if you remain consistent and dedicated daily. Remember, quality is better than quantity, so reply with quality content, post valuable content, and watch your account grow as quickly as possible.  
+                If you still have questions, feel free to reach out to me on X, and I’ll guide you through the process.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<section class="section cta">
+    <div class="container">
+        <h2 class="title is-3">Ready to Unlock 5M Impressions?</h2>
+        <p class="subtitle is-5">Get the roadmap to grow your impressions and build a monetized account in no time. Start your journey today!</p>
+
+        <!-- Pricing Section -->
+        <div class="pricing">
+            <p>
+                <span style=" background-color: #E91E63; padding: 2px;">
+                    <span class="original-price">$10</span>
+                    <span class="discounted-price">Set your price</span>
+                </span>
+            </p>
+        </div>
+
+
+        <form id="discount-form" action="/submit-email" method="POST"> {% csrf_token %}
+            <div class="birthday-field">
+                <label for="birthday">Birthday</label>
+                <input type="text" name="birthday" id="birthday">
+            </div>
+            <!-- Cloudflare Turnstile -->
+            <div class="field">
+                <div class="cf-turnstile" data-sitekey="your-site-key"></div>
+            </div>
+            <div class="field has-addons">
+                <div class="control is-expanded">
+                    <input
+                        class="input is-medium"
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email for a discount"
+                        required
+                    />
+                </div>
+                <div class="control">
+                    <button class="button is-primary is-medium has-text-black" type="submit">
+                        Get <span class="pl-2 pr-2"> 90<sup>% </sup> </span> Off
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+<!-- JavaScript -->
+
+
+
+
+{% endblock content %}
+
+
+{% block scripts %}
+<!-- JavaScript for Image Rotation -->
+<script>
+    const images = [
+        "/static/app/images/book-cover.png",
+        "/static/app/images/cover_0.jpg",
+        "/static/app/images/5m.png",
+    ];
+
+    const bookCover = document.getElementById("book-cover");
+    let currentImageIndex = 0;
+
+    function rotateImage() {
+        bookCover.style.opacity = "0"; // Start fade-out
+
+        setTimeout(() => {
+            currentImageIndex = (currentImageIndex + 1) % images.length; // Cycle through images
+            bookCover.src = images[currentImageIndex];
+            bookCover.style.opacity = "1"; // Fade-in effect
+        }, 500); // Half the duration of the transition (0.5s) for smoother effect
+    }
+
+    setInterval(rotateImage, 5000);
+</script>
+<script>
+    function toggleFaq(element) {
+        const answer = element.nextElementSibling;
+        const icon = element.querySelector('.faq-icon');
+
+        // Toggle display of the answer
+        if (answer.style.display === 'none' || answer.style.display === '') {
+            answer.style.display = 'block';
+            icon.textContent = '-'; // Change icon to "-"
+        } else {
+            answer.style.display = 'none';
+            icon.textContent = '+'; // Change icon to "+"
+        }
+    }
+</script>
+    
+{% endblock scripts %}
+    
