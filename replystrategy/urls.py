@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from app.views import submit_email
 
 urlpatterns = [
-    path('dashboad/', admin.site.urls),
+    path('dashboard/', admin.site.urls),
     path("submit-email", submit_email, name="submit_email"),
     path('', include('app.urls')),
 ]
