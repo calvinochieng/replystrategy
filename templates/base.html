@@ -66,7 +66,26 @@
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'app/style.css' %}">
     {% block custom_styles %}{% endblock custom_styles %}
-    <style>/* Footer Base Styles */
+    <style>
+    
+/* For messages and notifications */
+.messages{
+            padding: 1rem;
+            width: 100%;
+            z-index: 100;
+            position: absolute;
+        }
+        .notification{
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        #cancel{
+            position: absolute;
+            cursor: pointer;
+            right: .75rem;
+            top: 1.29rem;
+        }
+    /* Footer Base Styles */
         .footer {
             background-color: #040404;
             color: #fff;
@@ -175,12 +194,16 @@
     </nav>
 
     <!-- Content Section -->
+ 
     {% if messages %}
         <div class="messages">
             {% for message in messages %}
-                <div class="notification is-{{ message.tags }}">
-                    {{ message }}
-                </div>
+            <div class="notification is-{{ message.tags }}">
+                {{ message }}
+                <span id="cancel" class="icon has-text-black" style="cursor: pointer;">
+                    <i class="fa fa-times"></i> <!-- Close icon -->
+                </span>
+            </div>
             {% endfor %}
         </div>
     {% endif %}
@@ -221,6 +244,29 @@
             const target = document.getElementById(this.dataset.target);
             target.classList.toggle('is-active');
         });
+    </script>
+    <!-- Showing the messages etc -->
+    <script>
+        // Select the cancel button
+        const cancel = document.querySelector('#cancel');
+        const messageContainer = document.querySelector('.messages');
+        
+        // Timer to automatically remove the message after 5 seconds
+        let autoRemoveTimer = setTimeout(() => {
+            if (messageContainer) {
+                messageContainer.style.display = 'none';
+            }
+        }, 5000); // 5000ms = 5 seconds
+
+        // Function to manually remove the message
+        const removeMessage = () => {
+            if (messageContainer) {
+                messageContainer.style.display = 'none';
+            }
+            clearTimeout(autoRemoveTimer); // Clear the timer to prevent conflicts
+        };
+
+        if (cancel){ cancel.addEventListener('click', removeMessage);}
     </script>
     
     {% block scripts %}
