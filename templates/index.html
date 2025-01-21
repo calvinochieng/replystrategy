@@ -325,7 +325,7 @@ Learn the Reply Guy Strategy to skyrocket your Twitter X growth with actionable 
                <div class="column lander is-half has-text-centered">
                 <div class="inner" style="width: 90%">
                     <figure class="image is-4by3">
-                        <img id="book-cover" src="/static/app/images/book-cover.png" 
+                        <img id="book-cover" src="/static/app/images/cover_0.jpg" 
                             alt="5M Impressions Unlocked Book Cover" 
                             style=" opacity: 1;">
                     </figure>
@@ -336,44 +336,6 @@ Learn the Reply Guy Strategy to skyrocket your Twitter X growth with actionable 
         </div>
     </div>
 </section>
- <section class="section" style=" background: linear-gradient(45deg, gold, #e1e1e1);">
-    <div class="container">
-        <div class="columns">
-            <div class="column is-half">
-                <div class="author">
-                    <a href="">
-                        <figure class="image is-square">
-                            <img src="/static/app/images/edmunds.jpg" alt="Jacob C. Edmunds">
-                        </figure>
-                    </a>
-                    <span><b>Jacob C Edmunds</b> </span> <br>
-                    <span> <small>Author</small> </span> <br>
-                    <span>
-                        <a href="youtube.com/@JacobCEdmunds">
-                            <span class="icon">
-                                <i class="fab fa-youtube"></i>
-                            </span>
-                        </a>
-                        <a href="https://x.com/JacobCEdmunds">
-                            
-                            <span class="icon">
-                                <i class="fab fa-x-twitter"></i>
-                            </span>
-                        </a>
-                    </span>
-                </div>
-            </div>
-            <div class="column is-half">
-                <div class="content">
-                    <p> <b>𝕏 / Youtube Content Creator</b></p>
-                    <p>
-                        Shadow Ban Slayer | Helping creators get monetized on 𝕏 and start earning payouts within 90 days.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
- </section>
 <!-- Features Section -->
 <section class="section feature-section" id="features">
     <div class="container">
@@ -588,29 +550,6 @@ Learn the Reply Guy Strategy to skyrocket your Twitter X growth with actionable 
 
 
 {% block scripts %}
-<!-- JavaScript for Image Rotation -->
-<script>
-    const images = [
-        "/static/app/images/book-cover.png",
-        "/static/app/images/cover_0.jpg",
-        "/static/app/images/5m.png",
-    ];
-
-    const bookCover = document.getElementById("book-cover");
-    let currentImageIndex = 0;
-
-    function rotateImage() {
-        bookCover.style.opacity = "0"; // Start fade-out
-
-        setTimeout(() => {
-            currentImageIndex = (currentImageIndex + 1) % images.length; // Cycle through images
-            bookCover.src = images[currentImageIndex];
-            bookCover.style.opacity = "1"; // Fade-in effect
-        }, 500); // Half the duration of the transition (0.5s) for smoother effect
-    }
-
-    setInterval(rotateImage, 5000);
-</script>
 <script>
     function toggleFaq(element) {
         const answer = element.nextElementSibling;
