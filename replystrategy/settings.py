@@ -1,17 +1,19 @@
 
 from pathlib import Path
-from decouple import config
+from decouple import config, Csv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY', default='fallback-secret-key')
+SECRET_KEY = config('SECRET_KEY')
 
 
-DEBUG = False or config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG',  cast=bool)
 
-ALLOWED_HOSTS = ['*', '127.0.0.1/']
+PRODUCTION_MODE = config('PRODUCTION_MODE',cast=bool)
+
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 
 INSTALLED_APPS = [
@@ -22,6 +24,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'cloudinary_storage',
+    'cloudinary', 
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -96,5 +101,18 @@ STATICFILES_DIRS = [BASE_DIR / 'static/']
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = '/static/'
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+MEDIA_URL = '/media/' 
+
+if not DEBUG:    
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    WHITENOISE_MAX_AGE = 31536000  # 1 year for static files
+    CLOUDINARY_STORAGE = {
+            'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
+            'API_KEY': config('CLOUDINARY_API_KEY'),
+            'API_SECRET': config('CLOUDINARY_API_SECRET'),
+        }    
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    if PRODUCTION_MODE:
+        STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

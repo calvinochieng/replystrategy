@@ -213,32 +213,49 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <!-- Call to Action -->
-            <div class="cta-footer content has-text-centered">
-                <p class="title is-5">Ready to Unlock Your Twitter Growth?</p>
-                <a class="button is-primary is-medium" href="https://calvinochieng.gumroad.com/l/5MUnlocked">Grab Your Copy for <span class="pl-2">$1 <sup>55</sup> </span></a>
+        <div class="container"> 
+            <div class="columns">
+                <div class="column">
+                    <h4 class="title has-text-white gradient-title is-size-4">Quick Links</h4>
+                    <ul>                           
+                        <li><a href="/#twitter-testimonials">Testimonials</a></li>
+                        <li><a href="/#faq">Faq</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h4 class="title has-text-white gradient-title is-size-4">Partner Websites</h4>
+                    <ul>
+                        <li><a href="https://xtuls.com/">Xtuls</a></li>
+                        <li><a href="https://5munlocked.ink/">5MUnlocked</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h4 class="title has-text-white gradient-title is-size-4">Social Links</h4>
+                    <div class="social-icons">
+                        <a href="https://x.com/calvinochieng" class="icon is-medium"><i class="fab fa-x-twitter"></i></a>
+                    </div>
+                </div>
             </div>
-    
-            <hr class="footer-divider">
-    
-            <!-- Footer Links -->
-            <!-- Author Credits -->
+            <div class="content has-text-centered">
+                <p>&copy; <span id="year"></span> X 5M Impressions Unlocked . All rights reserved.</p>
+            </div>
             <div class="authors content has-text-centered">
                 <p class="is-size-6">
-                    Written by <a href="https://x.com/calvinochieng_" target="_blank">Calvin Ochieng</a> & 
-                    <a href="https://x.com/shiv_009_dev" target="_blank">Shiv</a>
+                    <span>Designed and Written by <a href="https://x.com/calvinochieng_" target="_blank">Calvin Ochieng</a> & 
+                    <a href="https://x.com/shiv_009_dev" target="_blank">Shiv</a></span>
                 </p>
-            </div>    
-            <!-- Copyright Section -->
-            <div class="copyright content has-text-centered">
-                <p class="is-size-7">© 2024 X 5M Impressions Unlocked. All rights reserved.</p>
             </div>
+
+
         </div>
     </footer>
     
 
     <!-- JavaScript -->
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
     <script>
         document.querySelector('.navbar-burger').addEventListener('click', function () {
             const target = document.getElementById(this.dataset.target);
