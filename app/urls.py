@@ -3,6 +3,7 @@ from app.views import *
 
 urlpatterns = [
     path('', index, name="index"),
-    path("<slug:slug>/",detail_view, name="detail"),  # General slug last
+    path('articles/', article_list, name='articles'),
+    path("a/<slug:slug>",article_detail, name="article"),  # General slug last
 ]
 

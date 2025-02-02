@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.http import HttpResponseBadRequest
 from .forms import EmailSubmissionForm
-from .models import EmailSubmission
+from .models import *
+
 
 # Gumroad URL
 GUMROAD_URL = "https://calvinochieng.gumroad.com/l/5MUnlocked"
@@ -41,6 +42,12 @@ def submit_email(request):
 def index(request): 
     return render(request, 'index.html')
 
-def detail_view(request, slug):             
-    return render(request,'detail.html', locals())
+
+def article_list(request):
+    articles = Article.objects.all().order_by('-created_at')
+    return render(request, 'article/list.html', {'articles': articles})
+
+def article_detail(request, pk):
+    article = get_object_or_404(Article, pk=pk)
+    return render(request, 'article/detail.html', {'article': article})
 
