@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}5M Impressions Unlocked{% endblock title %}</title>
+    {% load static %}
 
     <!-- SEO Meta Tags -->
     <meta name="description" content="{% block description %}Learn actionable strategies from '5M Impressions Unlocked' to skyrocket your Twitter X growth and monetization goals.{% endblock description %}">
@@ -16,16 +17,16 @@
     <meta name="twitter:site" content="@calvinochieng_">
     <meta name="twitter:title" content="5M Impressions Unlocked: Master the Reply Strategy">
     <meta name="twitter:description" content="Discover how to master engagement, boost impressions, and grow on X (Twitter). Unlock top accounts to reply to for massive reach with our guide.">
-    <meta name="twitter:image" content="https://5munlocked.tips/static/images/5m-cover-large.jpg">
+    <meta name="twitter:image" content="{% static 'app/images/cover_0.jpg' %}">
     <meta name="twitter:image:alt" content="Book cover: 5M Impressions Unlocked">
 
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://5munlocked.tips">
+    <meta property="og:url" content="https://5munlocked.ink">
     <meta property="og:title" content="5M Impressions Unlocked: Master the Reply Strategy">
     <meta property="og:description" content="The ultimate guide to boosting your impressions on X (Twitter). Learn top engagement tactics, reply strategies, and timing secrets.">
-    <meta property="og:image" content="https://5munlocked.tips/static/images/5m-cover-large.jpg">
+    <meta property="og:image" content="{% static 'app/images/cover_0.jpg' %}">
     <meta property="og:image:alt" content="Book cover: 5M Impressions Unlocked">
     <meta property="og:site_name" content="5M Unlocked">
     <meta property="og:locale" content="en_US">
@@ -42,8 +43,8 @@
             "name": "Calvin Ochieng"
           },
           "description": "Discover the secrets to growing on X (Twitter) with our comprehensive Reply Strategy. Learn engagement tactics, top accounts to engage with, and timing strategies for massive reach.",
-          "image": "https://5munlocked.tips/static/images/5m-cover-large.jpg",
-          "url": "https://5munlocked.tips",
+          "image": "{% static 'app/images/cover_0.jpg' %}",
+          "url": "https://5munlocked.ink",
           "publisher": {
             "@type": "Organization",
             "name": "5M Unlocked Tips"
@@ -59,7 +60,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- CSS Files -->
-    {% load static %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 

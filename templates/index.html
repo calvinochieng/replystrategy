@@ -7,6 +7,7 @@
 {% block description %}
 Learn the Reply Guy Strategy to skyrocket your Twitter X growth with actionable tips and real-life examples.
 {% endblock description %}
+{% load static %}
 
 {% block custom_styles %}
 <style>
@@ -326,7 +327,7 @@ Learn the Reply Guy Strategy to skyrocket your Twitter X growth with actionable 
                <div class="column lander is-half has-text-centered">
                 <div class="inner" style="width: 90%">
                     <figure class="image is-4by3">
-                        <img id="book-cover" src="/static/app/images/cover_0.jpg" 
+                        <img id="book-cover" src="{% static 'app/images/cover_0.jpg' %}" 
                             alt="5M Impressions Unlocked Book Cover" 
                             style=" opacity: 1;">
                     </figure>

@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 
-DEBUG = config('DEBUG',  cast=bool)
+DEBUG = True or config('DEBUG',  cast=bool)
 
 PRODUCTION_MODE = config('PRODUCTION_MODE',cast=bool)
 
@@ -22,10 +22,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'app',
     'cloudinary_storage',
-    'cloudinary', 
+    'cloudinary',
+    'django.contrib.staticfiles',
+    'app', 
     'django_summernote'
 ]
 
@@ -42,6 +42,12 @@ SUMMERNOTE_CONFIG = {
         ],
     },
 }
+
+CLOUDINARY_STORAGE = {
+            'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
+            'API_KEY': config('CLOUDINARY_API_KEY'),
+            'API_SECRET': config('CLOUDINARY_API_SECRET'),
+        }  
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -114,19 +120,9 @@ LOGOUT_REDIRECT_URL = "/user/login/"
 STATICFILES_DIRS = [BASE_DIR / 'static/']
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
 MEDIA_URL = '/media/' 
-
-if not DEBUG:    
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-    WHITENOISE_MAX_AGE = 31536000  # 1 year for static files
-    CLOUDINARY_STORAGE = {
-            'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
-            'API_KEY': config('CLOUDINARY_API_KEY'),
-            'API_SECRET': config('CLOUDINARY_API_SECRET'),
-        }    
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-    if PRODUCTION_MODE:
-        STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.RawMediaCloudinaryStorage'     
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
