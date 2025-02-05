@@ -85,6 +85,65 @@
             right: .75rem;
             top: 1.29rem;
         }
+    /* CTA */
+     /* CTA Section */
+     .cta {
+        background: linear-gradient(to right, gold, #e2a900);
+        color: white;
+        text-align: center;
+        padding: 4rem 1.5rem;
+    }
+
+    .cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: bold;
+    }
+
+    .cta p {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+    }
+
+    .cta .pricing {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: #000;
+    }
+    .original-price {
+        text-decoration: line-through;
+        color: white;}
+    .pricing {
+        font-weight: bold;
+        color: #fff;
+        margin-right: 10px;
+    }
+
+    .pricing .discounted-price {
+        font-weight: bold;
+        color: #ffdd57;
+    }
+
+    #discount-form .input {
+        border-radius: 4px 0 0 4px;
+        border: none;
+    }
+
+    #discount-form .button {
+        border-radius: 0 4px 4px 0;
+        color: #000;
+        font-weight: bold;
+        border: none;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    #discount-form .button:hover {
+        background-color: #e9c307;
+        color: #fff;
+    }
+    .birthday-field{ display: none;}
+
+   
     /* Footer Base Styles */
         .footer {
             background-color: #040404;
@@ -161,6 +220,11 @@
             font-size: 0.875rem;
             color: #666;
         }
+        @media (min-width: 768px) { /* Apply 80% width for tablets and larger */
+        .faq .container, .cta .container {
+            width: 750PX;
+            }
+        }
         </style>
 </head>
 <body>
@@ -184,6 +248,7 @@
                     <a class="navbar-item" href="https://calvinochieng.gumroad.com/l/5MUnlocked">
                         <button class="button is-primary has-text-black"> Get the Book</button>
                     </a>
+                    <a href="{% url 'articles' %}" class="navbar-item">Blog</a>
                     <!-- Follow on Twitter/X -->
                     <a class="navbar-item black-text" href="https://x.com/calvinochieng_" target="_blank">
                         <i class="fab fa-x-twitter" style="margin-right: 5px;"></i> Follow Us
@@ -210,6 +275,51 @@
 
     {% block content %}
     {% endblock content %}
+        
+    <section class="section cta">
+        <div class="container">
+            <h2 class="title is-3">Ready to Unlock 5M Impressions?</h2>
+            <p class="subtitle is-5">Get the roadmap to grow your impressions and build a monetized account in no time. Start your journey today!</p>
+
+            <!-- Pricing Section -->
+            <div class="pricing">
+                <p>
+                    <span style=" background-color: #E91E63; padding: 2px;">
+                        <span class="original-price">$10</span>
+                        <span class="discounted-price">Set your price</span>
+                    </span>
+                </p>
+            </div>
+
+
+            <form id="discount-form" action="/submit-email" method="POST"> {% csrf_token %}
+                <div class="birthday-field">
+                    <label for="birthday">Birthday</label>
+                    <input type="text" name="birthday" id="birthday">
+                </div>
+                <!-- Cloudflare Turnstile -->
+                <div class="field">
+                    <div class="cf-turnstile" data-sitekey="your-site-key"></div>
+                </div>
+                <div class="field has-addons">
+                    <div class="control is-expanded">
+                        <input
+                            class="input is-medium"
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email for a discount"
+                            required
+                        />
+                    </div>
+                    <div class="control">
+                        <button class="button is-primary is-medium has-text-black" type="submit">
+                            Get <span class="pl-2 pr-2"> 90<sup>% </sup> </span> Off
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -221,6 +331,7 @@
                         <li><a href="/#twitter-testimonials">Testimonials</a></li>
                         <li><a href="/#faq">Faq</a></li>
                         <li><a href="/#contact">Contact</a></li>
+                        <li><a href="{% url 'articles' %}">Articles</a></li>
                     </ul>
                 </div>
                 <div class="column">
@@ -243,7 +354,7 @@
             <div class="authors content has-text-centered">
                 <p class="is-size-6">
                     <span>Designed and Written by <a href="https://x.com/calvinochieng_" target="_blank">Calvin Ochieng</a> & 
-                    <a href="https://x.com/shiv_009_dev" target="_blank">Shiv</a></span>
+                    <a href="https://x.com/shiv_009_dev" target="_blank">Shiv Kumar</a></span>
                 </p>
             </div>
 

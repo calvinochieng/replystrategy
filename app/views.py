@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.http import HttpResponseBadRequest
+from django.core.paginator import Paginator
+
 from .forms import EmailSubmissionForm
 from .models import *
 
@@ -42,12 +44,19 @@ def submit_email(request):
 def index(request): 
     return render(request, 'index.html')
 
-
 def article_list(request):
-    articles = Article.objects.all().order_by('-created_at')
-    return render(request, 'article/list.html', {'articles': articles})
+    article_list = Article.objects.all().order_by('-created_at')
+    paginator = Paginator(article_list, 9)  # 6 articles per page
+    page_number = request.GET.get('page')
+    articles = paginator.get_page(page_number)
+    return render(request, 'list.html', {'articles': articles})
 
-def article_detail(request, pk):
-    article = get_object_or_404(Article, pk=pk)
-    return render(request, 'article/detail.html', {'article': article})
+def article_detail(request, slug):
+    article = get_object_or_404(Article, slug=slug)
+    other_articles = Article.objects.exclude(id=article.id)[:6]  # Adjust as needed
+    return render(request, "detail.html", {
+        "article": article,
+        "other_articles": other_articles,
+    })
+
 

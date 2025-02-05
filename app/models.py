@@ -8,7 +8,7 @@ class Article(models.Model):
     title = models.CharField(max_length=200)
     cover = models.ImageField( upload_to='5m/blog/')
     description = models.TextField()
-    content = SummernoteTextField()  # CKEditor rich text field
+    content = SummernoteTextField()  
     slug = models.SlugField(unique=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
